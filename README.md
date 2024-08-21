@@ -35,7 +35,7 @@ Para executar este projeto, você precisa ter:
    
    Acesso a Mensagem `http://localhost:8000/` [Rota GET]
    
-   Edição da Mensagem `http://localhost:8000/update` [Rota Put]
+   Edição da Mensagem `http://localhost:8000/update` [Rota PUT]
 
    é nescessario enviar uma mensagem no formato json para que o nome seja alterado na rota Get como na imagem abaixo
    ![Screenshot_24](https://github.com/user-attachments/assets/d6e62f85-bdce-4606-8a2a-503d3d7c4c0d)
