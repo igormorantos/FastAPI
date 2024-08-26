@@ -20,7 +20,7 @@ jobs:
           pip install fastapi
           pip install fastapi[standard]
           pip install uvicorn
-          start /B uvicorn app.app:app --reload  # Roda o Uvicorn em segundo plano
-          timeout /T 10                           # Espera 10 segundos para garantir que o servidor iniciou corretamente
+          Start-Process -FilePath uvicorn -ArgumentList "app.app:app --reload" -NoNewWindow  # Executa o Uvicorn em segundo plano
+          Start-Sleep -Seconds 10  # Espera 10 segundos para garantir que o servidor iniciou corretamente
       - name: Continue pipeline
         run: echo "Continuando o pipeline..."
