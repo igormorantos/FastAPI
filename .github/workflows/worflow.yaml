@@ -1,20 +1,23 @@
-name: Continuos Integration
+name: Continuous Integration
 
 on: [pull_request, push]
 
 jobs:
-  continuos-integration:
+  continuous-integration:
     runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v3
-      - name: Using Python
+      - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.
-      - name: run install, build and test
+          python-version: '3.x'  # Certifique-se de especificar a versão correta aqui, por exemplo '3.12'
+      - name: Set PYTHONUTF8 environment variable
+        run: |
+          echo "PYTHONUTF8=1" >> $GITHUB_ENV
+      - name: Run install, build, and test
         run: |
           pip install fastapi
           pip install fastapi[standard]
           pip install uvicorn
-          fastapi dev app/app.py
+          uvicorn app.app:app --reload
