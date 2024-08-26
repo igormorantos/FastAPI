@@ -1,0 +1,19 @@
+name: Continuos Integration
+
+on: [pull_request, push]
+
+jobs:
+  continuos-integration:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Using Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.
+      - name: run install, build and test
+        run: |
+          pip install fastapi
+          pip install uvicorn
+          fastapi dev app.py
